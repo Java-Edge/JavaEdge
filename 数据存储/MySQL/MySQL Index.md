@@ -1,18 +1,8 @@
 
 # 思维导图-索引篇
-
-> 系列思维导图源文件（数据库+架构）以及思维导图制作软件—XMind8 破解安装，公众号后台回复：**“思维导图”** 免费领取！（下面的图片不是很清楚，原图非常清晰，另外提供给大家源文件也是为了大家根据自己需要进行修改）
-
 ![【思维导图-索引篇】](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-10-2/70973487.jpg)
 
-> **下面是我补充的一些内容**
-
 # 为什么索引能提高查询速度
-
-> 以下内容整理自：
->  地址： https://juejin.im/post/5b55b842f265da0f9e589e79
->  作者 ：Java3y
-
 ### 先从 MySQL 的基本存储结构说起
 
 MySQL的基本存储结构是页(记录都存在页里边)：
@@ -102,11 +92,4 @@ ALTER TABLE `table_name` ADD FULLTEXT ( `column`)
 ```
 ALTER TABLE `table_name` ADD INDEX index_name ( `column1`, `column2`, `column3` )
 ```
-
-
-# 参考
-
-- 《Java工程师修炼之道》
-- 《MySQL高性能书籍_第3版》
-- https://juejin.im/post/5b55b842f265da0f9e589e79
                            
