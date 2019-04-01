@@ -1,11 +1,3 @@
-# 联系我
-![image](http://upload-images.jianshu.io/upload_images/4685968-38a12aa11592b064?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "图片标题") 
-1.Q群【Java开发技术交流】：[https://jq.qq.com/?_wv=1027&k=5UB4P1T](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-2.完整博客链接:[www.shishusheng.com](http://www.shishusheng.com)
-3.知乎:[http://www.zhihu.com/people/shi-shu-sheng-](http://www.zhihu.com/people/shi-shu-sheng-)
-4.gayhub:[https://github.com/Wasabi1234](https://github.com/Wasabi1234)
-
-
 # 1 线程池的好处
  线程使应用能够更加充分合理地协调利用CPU、内存、网络、I/O等系统资源.
 线程的创建需要开辟虚拟机栈、本地方法栈、程序计数器等线程私有的内存空间;
@@ -1169,7 +1161,7 @@ protected void beforeExecute(Thread t, Runnable r) { }
 - workers 的数量大于等于 corePoolSize，准备入队，可是队列满了，任务入队失败，那么准备开启新的线程，可是线程数已经达到 maximumPoolSize，那么执行拒绝策略。
 
 # 参考
-<<码出高效>>
+《码出高效》
 
 
 
