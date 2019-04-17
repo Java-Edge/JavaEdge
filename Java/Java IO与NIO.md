@@ -195,6 +195,3 @@ Java7中新增了AsynchronousFileChannel作为nio的一部分。AsynchronousFile
 
 ### [Java AIO总结与示例](https://blog.csdn.net/x_i_y_u_e/article/details/52223406)
 AIO是异步IO的缩写，虽然NIO在网络操作中，提供了非阻塞的方法，但是NIO的IO行为还是同步的。对于NIO来说，我们的业务线程是在IO操作准备好时，得到通知，接着就由这个线程自行进行IO操作，IO操作本身是同步的。
-
-
-**欢迎关注我的微信公众号:"Java面试通关手册"（一个有温度的微信公众号，期待与你共同进步~~~坚持原创，分享美文，分享各种Java学习资源）：**

@@ -1,5 +1,3 @@
-***欢迎志同道合的小伙伴一起交流Java学习,共同应对校招 
-点击链接加入群【java编程技术交流】：https://jq.qq.com/?_wv=1027&k=4A14H0S***
 # 1 概述
 本文将介绍Map集合的另一个常用类,Hashtable.Hashtable出来的比HashMap早,HashMap1.2才有,而Hashtable在1.0就已经出现了.HashMap和Hashtable实现原理基本一样,都是通过哈希表实现.而且两者处理冲突的方式也一样,都是通过链表法.下面就详细学习下这个类.
 
