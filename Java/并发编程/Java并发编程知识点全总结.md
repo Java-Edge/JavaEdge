@@ -863,3 +863,13 @@ public class SemaphoreExample3 {
 #  20 参考
 [Java并发编程入门与高并发面试](https://coding.imooc.com/class/195.html)
 
+
+# X 联系我
+![](http://upload-images.jianshu.io/upload_images/4685968-6a8b28d2fd95e8b7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "图片标题") 
+## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+
+## [博客](http://www.shishusheng.com)
+
+## [知乎](http://www.zhihu.com/people/shi-shu-sheng-)
+
+## [Github](https://github.com/Wasabi1234)
