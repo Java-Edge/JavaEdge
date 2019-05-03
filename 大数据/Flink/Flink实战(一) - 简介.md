@@ -71,12 +71,14 @@
 
 ◆善于提问:QQ群讨论
 
-# X 联系我
-![](http://upload-images.jianshu.io/upload_images/4685968-6a8b28d2fd95e8b7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "图片标题") 
+# X 交流学习
+![](https://upload-images.jianshu.io/upload_images/16782311-8d7acde57fdce062.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+![](https://upload-images.jianshu.io/upload_images/16782311-11d3533436ffbbdf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## [博客](http://www.shishusheng.com)
 
-## [知乎](http://www.zhihu.com/people/shi-shu-sheng-)
+![](https://upload-images.jianshu.io/upload_images/16782311-b4ec7ff8790e19a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## [Github](https://github.com/Wasabi1234)

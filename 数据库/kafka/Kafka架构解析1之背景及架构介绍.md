@@ -179,13 +179,15 @@ public void sendMessage() throws InterruptedException{
 *   如果一定要做到`Exactly once`，就需要协调offset和实际操作的输出。经典的做法是引入两阶段提交。如果能让offset和操作输入存在同一个地方，会更简洁和通用。这种方式可能更好，因为许多输出系统可能不支持两阶段提交。比如，Consumer拿到数据后可能把数据放到HDFS，如果把最新的offset和数据本身一起写到HDFS，那就可以保证数据的输出和offset的更新要么都完成，要么都不完成，间接实现`Exactly once`。（目前就high level API而言，offset是存于Zookeeper中的，无法存于HDFS，而low level API的offset是由自己去维护的，可以将之存于HDFS中）
     　　总之，Kafka默认保证`At least once`，并且允许通过设置Producer异步提交来实现`At most once`。而`Exactly once`要求与外部存储系统协作，幸运的是Kafka提供的offset可以非常直接非常容易得使用这种方式。
 
-# X 联系我
-![](http://upload-images.jianshu.io/upload_images/4685968-6a8b28d2fd95e8b7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "图片标题") 
+# X 交流学习
+![](https://upload-images.jianshu.io/upload_images/16782311-8d7acde57fdce062.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+![](https://upload-images.jianshu.io/upload_images/16782311-11d3533436ffbbdf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## [博客](http://www.shishusheng.com)
 
-## [知乎](http://www.zhihu.com/people/shi-shu-sheng-)
+![](https://upload-images.jianshu.io/upload_images/16782311-b4ec7ff8790e19a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## [Github](https://github.com/Wasabi1234)
 
