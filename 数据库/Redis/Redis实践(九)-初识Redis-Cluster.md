@@ -273,3 +273,15 @@ Redis Cluster 还提供了一些方法可以提升性能和可用性。
 
 这样集群中每个master 至少有一个slave，使得Cluster 具有高可用。集群中只需要保持 2*master+1 个节点，就可以保持任一节点宕机时，故障转移后继续高可用。
 ![](https://upload-images.jianshu.io/upload_images/4685968-6f6b0095e5402aa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+# X 交流学习
+![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
+## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+![](https://img-blog.csdnimg.cn/20190502142519844.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
+
+## [博客](http://www.shishusheng.com)
+
+![](https://img-blog.csdnimg.cn/20190502142541289.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
+
+## [Github](https://github.com/Wasabi1234)
