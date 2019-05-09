@@ -257,4 +257,16 @@ Python3则不存在此问题,内部全部使用Unicode编码!!!
 # 参考
 [正则表达](https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
 
+# X 交流学习
+![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
+## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+![](https://img-blog.csdnimg.cn/20190502142519844.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
+
+## [博客](http://www.shishusheng.com)
+
+![](https://img-blog.csdnimg.cn/20190502142541289.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
+
+## [Github](https://github.com/Wasabi1234)
+
+
 
