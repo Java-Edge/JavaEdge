@@ -1,6 +1,5 @@
 ## Markdown 简历模板样式一览
-![](https://user-gold-cdn.xitu.io/2018/9/3/1659f91e4843bd67?w=800&h=1737&f=png&s=97357)
-**可以看到我把联系方式放在第一位，因为公司一般会与你联系，所以把联系方式放在第一位也是为了方便联系考虑。**
+把联系方式放在第一位，因为公司一般会与你联系，所以把联系方式放在第一位也是为了方便联系考虑
 
 ## 为什么要用 Markdown 写简历？
 
@@ -51,12 +50,6 @@ Markdown 语法简单，易于上手。使用正确的 Markdown 语言写出来�
 - Docker：掌握
 -  SOA分布式开发 ：掌握
 - Spring Cloud:了解
-
-## 简历模板分享
-
-**开源程序员简历模板**： [https://github.com/geekcompany/ResumeSample](https://github.com/geekcompany/ResumeSample)（包括PHP程序员简历模板、iOS程序员简历模板、Android程序员简历模板、Web前端程序员简历模板、Java程序员简历模板、C/C++程序员简历模板、NodeJS程序员简历模板、架构师简历模板以及通用程序员简历模板）
-
-**上述简历模板的改进版本：** [https://github.com/Snailclimb/Java-Guide/blob/master/面试必备/简历模板.md](https://github.com/Snailclimb/Java-Guide/blob/master/面试必备/简历模板.md) 
 
 ## 其他的一些小tips
 
