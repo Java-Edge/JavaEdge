@@ -24,3 +24,17 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+.DS_Store
+.idea/JavaEdge.iml
+.idea/compiler.xml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+Python/.DS_Store
+大数据/.DS_Store
+大数据/大数据入门(二) - 初探Hadoop.md
+操作系统/.DS_Store
+数据库/.DS_Store
+面试题系列/.DS_Store

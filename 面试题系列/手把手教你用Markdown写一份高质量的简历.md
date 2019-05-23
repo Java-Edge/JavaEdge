@@ -84,3 +84,15 @@ Markdown 语法简单，易于上手。使用正确的 Markdown 语言写出来�
 
 ![](https://user-gold-cdn.xitu.io/2018/9/3/1659fa0292906150?w=1289&h=468&f=png&s=72178)
 
+
+# X 交流学习
+![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
+
+## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+![](https://img-blog.csdnimg.cn/20190502142519844.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
+
+## [博客](http://www.shishusheng.com)
+
+## [Github](https://github.com/Wasabi1234)
+
+
