@@ -40,11 +40,7 @@ MQ、ES、Redis、Dubbo，上来先问你一些思考的问题，原理（kafka�
 # X 交流学习
 ![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-![](https://img-blog.csdnimg.cn/20190502142519844.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
-
 ## [博客](http://www.shishusheng.com)
-
-![](https://img-blog.csdnimg.cn/20190502142541289.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
 
 ## [Github](https://github.com/Wasabi1234)
 

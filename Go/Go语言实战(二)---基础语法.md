@@ -120,11 +120,11 @@ Switch语句 = 表达式选择语句 | 类型选择语句
 ![](https://upload-images.jianshu.io/upload_images/16782311-8d7acde57fdce062.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-![](https://upload-images.jianshu.io/upload_images/16782311-11d3533436ffbbdf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ## [博客](http://www.shishusheng.com)
 
-![](https://upload-images.jianshu.io/upload_images/16782311-b4ec7ff8790e19a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ## [Github](https://github.com/Wasabi1234)
 

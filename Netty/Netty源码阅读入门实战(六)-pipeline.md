@@ -45,7 +45,6 @@
 ![](https://upload-images.jianshu.io/upload_images/4685968-a8d8677a4993558c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![用户方自定义实现即可](https://upload-images.jianshu.io/upload_images/4685968-98a581d42b4e7288.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![](https://upload-images.jianshu.io/upload_images/4685968-440e88fe89d74605.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-# 4 未下载,失败 ing
 # 6 outBound事件的传播
 ![](https://upload-images.jianshu.io/upload_images/4685968-2cfd135d3979bdef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![](https://upload-images.jianshu.io/upload_images/4685968-2110e4882dab2338.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

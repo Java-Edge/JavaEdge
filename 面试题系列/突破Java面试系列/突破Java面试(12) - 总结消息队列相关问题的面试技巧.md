@@ -13,14 +13,12 @@
 
 最后说一个技巧，要是确实碰一个面试官连这7个问题都没问满，只要他提到mq，你自己就和盘托出一整套的东西，你就说，mq你们之前遇到过什么问题，巴拉巴拉，你们的方案是什么，自己突出自己会的东西
 
+# 参考
+《Java工程师面试突击第1季-中华石杉老师》
+
+
 # X 交流学习
 ![](https://upload-images.jianshu.io/upload_images/16782311-8d7acde57fdce062.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-![](https://upload-images.jianshu.io/upload_images/16782311-11d3533436ffbbdf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 ## [博客](http://www.shishusheng.com)
-
-![](https://upload-images.jianshu.io/upload_images/16782311-b4ec7ff8790e19a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 ## [Github](https://github.com/Wasabi1234)

@@ -75,6 +75,7 @@ telnet 此机地址,引起连接建立
 ![](https://upload-images.jianshu.io/upload_images/4685968-a281db0fd9c51fa0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![](https://upload-images.jianshu.io/upload_images/4685968-ed0f172cecfb4941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 即为此处调用
+
 ![](https://upload-images.jianshu.io/upload_images/4685968-a2185e7d8be5ed58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![](https://upload-images.jianshu.io/upload_images/4685968-c02beb3305a4c3b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![回调之后,最终都会删除自身](https://upload-images.jianshu.io/upload_images/4685968-a35dba0841019f83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -121,3 +122,11 @@ telnet 此机地址,引起连接建立
 boss线程的第一个过程轮训处Accept事件，然后boss线程第二个过程通过jdk底层的channel的accept方法创建该连接。
 ![](https://upload-images.jianshu.io/upload_images/4685968-5edc177c40f49349.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 新连接NioEventLoop的分配和selector注册可以回答。boss线程调用chooser的next方法，拿到一个NioEventLoop，然后将这条连接注册到NioEventLoop的selector上面。
+
+# X 交流学习
+![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
+
+## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+## [博客](http://www.shishusheng.com)
+
+## [Github](https://github.com/Wasabi1234)

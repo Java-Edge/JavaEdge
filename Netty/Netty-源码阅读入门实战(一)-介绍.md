@@ -31,3 +31,11 @@
 ![](https://upload-images.jianshu.io/upload_images/4685968-447aad2184c81733.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![](https://upload-images.jianshu.io/upload_images/4685968-043d07602379c91d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![](https://upload-images.jianshu.io/upload_images/4685968-04630176d02dbd90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+# X 交流学习
+![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
+
+## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+## [博客](http://www.shishusheng.com)
+
+## [Github](https://github.com/Wasabi1234)

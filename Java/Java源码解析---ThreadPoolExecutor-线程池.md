@@ -32,7 +32,7 @@
 学习如何把任务线程加入到线程池中运行.
 
 - ThreadPoolExecutor 的构造方法如下
-![](https://upload-images.jianshu.io/upload_images/4685968-a5f955b792bd453e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852732_4685968-a5f955b792bd453e.png)
 
 - 第1个参数: corePoolSize 表示常驻核心线程数
 如果等于0,则任务执行完之后,没有任何请求进入时销毁线程池的线程;
@@ -76,7 +76,7 @@ keepAliveTime的时间单位通常是TimeUnit.SECONDS.
 线程池中应该保持的主要线程的数量.即使线程处于空闲状态，除非设置了`allowCoreThreadTimeOut`这个参数,当提交一个任务到线程池时,若线程数量<corePoolSize,线程池会创建一个新线程放入works(一个HashSet)中执行任务,即使其他空闲的基本线程能够执行新任务也还是会创建新线程
 等到需要执行的任务数大于线程池基本大小时就不再创建,会尝试放入等待队列workQueue
 如果调用线程池的`prestartAllCoreThreads()`,线程池会提前创建并启动所有核心线程
-![](https://upload-images.jianshu.io/upload_images/4685968-8410e7935aa8b28e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852753_4685968-8410e7935aa8b28e.png)
 ### 2.1.2 maximumPoolSize（线程池最大线程数）
 线程池允许创建的最大线程数
 若队列满,并且已创建的线程数小于最大线程数,则线程池会再创建新的线程放入works中执行任务,CashedThreadPool的关键,固定线程数的线程池无效
@@ -208,7 +208,7 @@ new ThreadFactoryBuilder().setNameFormat("XX-task-%d").build();
 从代码第2处来看，**队列、线程工厂、拒绝处理服务**都必须有实例对象;
 但在实际编程中,很少有程序员对这三者进行实例化,而通过`Executors`这个线程池静态工厂提供默认实现;
 那么Exceutors与ThreadPoolExecutor是什么关系呢?
-![线程池相关类图](https://upload-images.jianshu.io/upload_images/4685968-eaaaf8fd88497757.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![线程池相关类图](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852909_4685968-eaaaf8fd88497757.png)
 
 # Executors工厂类
 `ExecutorService` 的抽象类`AbstractExecutorService `提供了`submit`、`invokeAll` 等方法的实现;
@@ -225,7 +225,7 @@ JDK8 引入,创建持有足够线程的线程池支持给定的并行度;
 并通过使用多个队列减少竞争;
 构造方法中把CPU数量设置为默认的并行度.
 返回`ForkJoinPool` ( JDK7引入)对象,它也是`AbstractExecutorService` 的子类
-![](https://upload-images.jianshu.io/upload_images/4685968-3b4a8e8c1408f892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852906_4685968-3b4a8e8c1408f892.png)
 
 
 ● Executors.newCachedThreadPool
@@ -248,11 +248,11 @@ JDK8 引入,创建持有足够线程的线程池支持给定的并行度;
 输入的参数即是固定线程数;
 既是核心线程数也是最大线程数;
 不存在空闲线程,所以`keepAliveTime`等于0.
-![](https://upload-images.jianshu.io/upload_images/4685968-8cd91f3c6eada9de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852819_4685968-8cd91f3c6eada9de.png)
 其中使用了 LinkedBlockingQueue, 但是没有设置上限!!!,堆积过多任务!!!
 
 下面介绍`LinkedBlockingQueue`的构造方法
-![](https://upload-images.jianshu.io/upload_images/4685968-fce261dbe30def71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852910_4685968-fce261dbe30def71.png)
 使用这样的无界队列,如果瞬间请求非常大,会有OOM的风险;
 除`newWorkStealingPool` 外,其他四个创建方式都存在资源耗尽的风险.
 
@@ -262,18 +262,19 @@ JDK8 引入,创建持有足够线程的线程池支持给定的并行度;
 线程工厂需要做创建前的准备工作,对线程池创建的线程必须明确标识,就像药品的生产批号一样,为线程本身指定有意义的名称和相应的序列号.
 拒绝策略应该考虑到业务场景,返回相应的提示或者友好地跳转.
 以下为简单的ThreadFactory 示例
-![](https://upload-images.jianshu.io/upload_images/4685968-d2025287a82add95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852797_4685968-d2025287a82add95.png)
 
 上述示例包括线程工厂和任务执行体的定义;
 通过newThread方法快速、统一地创建线程任务,强调线程一定要有特定意义的名称,方便出错时回溯.
 
 - 单线程池：newSingleThreadExecutor()方法创建，五个参数分别是ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue())。含义是池中保持一个线程，最多也只有一个线程，也就是说这个线程池是顺序执行任务的，多余的任务就在队列中排队。 
 - 固定线程池：newFixedThreadPool(nThreads)方法创建
-![](http://upload-images.jianshu.io/upload_images/4685968-8d57772a2af925bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-池中保持nThreads个线程，最多也只有nThreads个线程，多余的任务也在队列中排队。 
-![ThreadPoolExecutor的构造器-1](http://upload-images.jianshu.io/upload_images/4685968-77849a2a5e34b69d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![ThreadPoolExecutor的构造器-2](http://upload-images.jianshu.io/upload_images/4685968-f5d6430733b7eb53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/images/20190625/5088755_1561474494512_5D0DD7BCB7171E9002EAD3AEF42149E6 "图片标题") 
 
+池中保持nThreads个线程，最多也只有nThreads个线程，多余的任务也在队列中排队。 
+![](https://uploadfiles.nowcoder.com/images/20190625/5088755_1561476084467_4A47A0DB6E60853DEDFCFDF08A5CA249 "图片标题") 
+
+![](https://uploadfiles.nowcoder.com/images/20190625/5088755_1561476102425_FB5C81ED3A220004B71069645F112867 "图片标题") 
 线程数固定且线程不超时
 - 缓存线程池：newCachedThreadPool()创建，五个参数分别是ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue())。
 含义是池中不保持固定数量的线程，随需创建，最多可以创建Integer.MAX_VALUE个线程（说一句，这个数量已经大大超过目前任何操作系统允许的线程数了），空闲的线程最多保持60秒，多余的任务在SynchronousQueue（所有阻塞、并发队列在后续文章中具体介绍）中等待。 
@@ -327,36 +328,36 @@ class TaskInPool implements Runnable {
 ```
 
 如图为排查底层公共缓存调用出错时的截图
-![有意义的线程命名](https://upload-images.jianshu.io/upload_images/4685968-85502533906c33f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![有意义的线程命名](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852749_4685968-85502533906c33f2.png)
 绿色框采用自定义的线程工厂,明显比蓝色框默认的线程工厂创建的线程名称拥有更多的额外信息:如调用来源、线程的业务含义，有助于快速定位到死锁、StackOverflowError 等问题.
 
 # 拒绝策略
 下面再简单地实现一下`RejectedExecutionHandler`;
 实现了接口的`rejectedExecution`方法,打印出当前线程池状态
-![](https://upload-images.jianshu.io/upload_images/4685968-ac7fac2c6b332daf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852809_4685968-ac7fac2c6b332daf.png)
 
 
 在`ThreadPoolExecutor`中提供了四个公开的内部静态类
 ● AbortPolicy  - **默认** 
 丢弃任务并抛出`RejectedExecutionException`
-![](https://upload-images.jianshu.io/upload_images/4685968-dcf8126c187d4bfa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852986_4685968-dcf8126c187d4bfa.png)
 
 ● DiscardPolicy - **不推荐**
 丢弃任务,但不拋异常.
-![](https://upload-images.jianshu.io/upload_images/4685968-d5195020e347d8eb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852956_4685968-d5195020e347d8eb.png)
 
 ● DiscardOldestPolicy
 抛弃队列中等待最久的任务,然后把当前任务加入队列中.
-![](https://upload-images.jianshu.io/upload_images/4685968-d3a36b90211138f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473853806_4685968-d3a36b90211138f4.png)
 
 ● CallerRunsPolicy
 调用任务的run()方法绕过线程池直接执行.
-![](https://upload-images.jianshu.io/upload_images/4685968-c06a04d6ce30de97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852908_4685968-c06a04d6ce30de97.png)
 
 
 根据之前实现的线程工厂和拒绝策略,线程池的相关代码实现如下
-![](https://upload-images.jianshu.io/upload_images/4685968-8b1c576213bea3ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-184f455240f1b79c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473854161_4685968-8b1c576213bea3ca.png)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473853636_4685968-184f455240f1b79c.png)
 当任务被拒绝的时候，拒绝策略会打印出当前线程池的大小已经达到了`maximumPoolSize=2`,且队列已满,完成的任务数提示已经有1个(最后一行).
 
 # 源码讲解
@@ -373,50 +374,50 @@ class TaskInPool implements Runnable {
 RUNNING < SHUTDOWN < STOP < TIDYING <TERMINATED
 这样设计的好处是可以通过比较值的大小来确定线程池的状态.
 例如程序中经常会出现isRunning的判断:
-![](https://upload-images.jianshu.io/upload_images/4685968-8dc7d0eacb458f2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852842_4685968-8dc7d0eacb458f2e.png)
 
-![](https://upload-images.jianshu.io/upload_images/4685968-813376a9826e24c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852717_4685968-813376a9826e24c6.png)
 
 - 000-1111111111111111111111111;
 类似于子网掩码,用于与运算;
 得到左边3位,还是右边29位
-![](https://upload-images.jianshu.io/upload_images/4685968-6c7f894116972a2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473853309_4685968-6c7f894116972a2f.png)
 
 用左边3位,实现5种线程池状态;
 在左3位之后加入中画线有助于理解;
 
 - 111 - 0000000000000000000000000000(十进制: -536, 870, 912);
 该状态表 线程池能接受新任务
-![](https://upload-images.jianshu.io/upload_images/4685968-e838c56b99544e93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852713_4685968-e838c56b99544e93.png)
 
 
 - 000 - 0000000000000000000000000(十进制: 0);
 此状态不再接受新任务,但可继续执行队列中的任务
-![](https://upload-images.jianshu.io/upload_images/4685968-d3447678b77c851f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473853025_4685968-d3447678b77c851f.png)
 
 - 001 - 00000000000000000000000000(十进制: 536,870， 912);
 此状态全面拒绝,并中断正在处理的任务
-![](https://upload-images.jianshu.io/upload_images/4685968-6c399a28de0f375b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852872_4685968-6c399a28de0f375b.png)
 
 - 010 - 00000000000000000000000000.(十进制值: 1, 073, 741, 824);
 该状态表 所有任务已经被终止
-![](https://upload-images.jianshu.io/upload_images/4685968-e1341ccae3d73473.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852814_4685968-e1341ccae3d73473.png)
 
 - 101 - 000000000000000000000000000(十进制值: 1, 610,612, 736)
 该状态表 已清理完现场
-![](https://upload-images.jianshu.io/upload_images/4685968-2b83ef2a0f28b570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852713_4685968-2b83ef2a0f28b570.png)
 
 
 与运算,比如 001 - 000000000000000000000100011 表 67个工作线程;
 掩码取反: 111 - 00000000000000000000000.,即得到左边3位001;
 表示线程池当前处于**STOP**状态
-![](https://upload-images.jianshu.io/upload_images/4685968-0d9b0884abe8e1c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852956_4685968-0d9b0884abe8e1c1.png)
 
 同理掩码 000 - 11111111111111111111,得到右边29位,即工作线程数
-![](https://upload-images.jianshu.io/upload_images/4685968-90063b2134c89772.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852768_4685968-90063b2134c89772.png)
 
 把左3位与右29位或运算,合并成一个值
-![](https://upload-images.jianshu.io/upload_images/4685968-858df4ebcb91a84e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852959_4685968-858df4ebcb91a84e.png)
 
 
 我们都知道`Executor`接口有且只有一个方法`execute()`;
@@ -517,9 +518,9 @@ RUNNING < SHUTDOWN < STOP < TIDYING <TERMINATED
 需要判断当前`RUNNING`态的线程是否少于`corePoolsize`
     - false
 需要判断当前`RUNNING`态的线程是否少于`maximumPoolsize`
-![](https://upload-images.jianshu.io/upload_images/4685968-28604fb5da1922e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-995fae94294021c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-3f775b9d518f3783.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473853220_4685968-28604fb5da1922e4.png)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852789_4685968-995fae94294021c7.png)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852830_4685968-3f775b9d518f3783.png)
 
 这段代码晦涩难懂,部分地方甚至违反代码规约,但其中蕴含丰富的编码知识点
 
@@ -531,7 +532,7 @@ label 定义时,必须把标签和冒号的组合语句紧紧相邻定义在循�
 在`workerCount`加1成功后,直接退出两层循环.
 
 - 第2处,这样的表达式不利于阅读,应如是
-![](https://upload-images.jianshu.io/upload_images/4685968-086e9d5f9da2afd4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852785_4685968-086e9d5f9da2afd4.png)
 
 - 第3处,与第1处的标签呼应,`AtomicInteger`对象的加1操作是原子性的;
 `break retry`表 直接跳出与`retry` 相邻的这个循环体
@@ -545,7 +546,7 @@ label 定义时,必须把标签和冒号的组合语句紧紧相邻定义在循�
 如果先创建线程,成功再加1,当发现超出限制后再销毁线程,那么这样的处理方式明显比前者代价要大.
 
 - 第6处,`Worker `对象是工作线程的核心类实现，部分源码如下
-![](https://upload-images.jianshu.io/upload_images/4685968-c9352782c56c3d67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473853232_4685968-c9352782c56c3d67.png)
 它实现了`Runnable`接口,并把本对象作为参数输入给`run()`中的`runWorker (this)`;
 所以内部属性线程`thread`在`start`的时候,即会调用`runWorker`.
 
@@ -566,16 +567,16 @@ label 定义时,必须把标签和冒号的组合语句紧紧相邻定义在循�
 而ScheduledThreadPoolExecutor继承自ThreadPoolExecutor
 
 ## 0.2 ThreadPoolExecutor 自定义线程池
-![ExecutorService接口的两个主要的具体实现](http://upload-images.jianshu.io/upload_images/4685968-ad3f46021b0ff27c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/images/20190625/5088755_1561476436402_10FB15C77258A991B0028080A64FB42D "图片标题") 
 它们都是某种线程池,可以控制线程创建,释放,并通过某种策略尝试复用线程去执行任务的一个管理框架
 
 ,因此最终所有线程池的构造函数都调用了Java5后推出的ThreadPoolExecutor的如下构造函数                        
-![](https://upload-images.jianshu.io/upload_images/4685968-bf41009597986058.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852810_4685968-bf41009597986058.png)
 
 ## Java默认提供的线程池
 Java中的线程池是运用场景最多的并发框架,几乎所有需要异步或并发执行任务的程序都可以使用线程池
-![](https://upload-images.jianshu.io/upload_images/4685968-4f18b5e96eb1d930.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-b7ec59a800442b26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473853075_4685968-4f18b5e96eb1d930.png)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852989_4685968-b7ec59a800442b26.png)
 
 我们只需要将待执行的方法放入 run 方法中，将 Runnable 接口的实现类交给线程池的
 execute 方法，作为他的一个参数，比如： 
@@ -588,8 +589,8 @@ e.execute(new Runnable(){ //匿名内部类     public  void run(){
 
 ```
 # 线程池的实现原理
-![](https://upload-images.jianshu.io/upload_images/4685968-fa16ddf5e4094e75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-a07b8b323331c15e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852674_4685968-fa16ddf5e4094e75.png)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852730_4685968-a07b8b323331c15e.png)
 
 ThreadPoolExecutor执行execute()分4种情况
  - 若当前运行的线程少于`corePoolSize`,则创建新线程来执行任务(执行这一步需要获取全局锁)
@@ -725,14 +726,14 @@ ThreadPoolExecutor执行execute()分4种情况
 ![workers 中删除掉相应的 worker,workCount 减 1
 private void addWor](https://upload-images.jianshu.io/upload_images/4685968-77abdc7bff21cca6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![记录 workers 中的个数的最大值,因为 workers 是不断增加减少的，通过这个值可以知道线程池的大小曾经达到的最大值](https://upload-images.jianshu.io/upload_images/4685968-078472b682fcc9cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-33f514577e97dc35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![记录 workers 中的个数的最大值,因为 workers 是不断增加减少的，通过这个值可以知道线程池的大小曾经达到的最大值](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852708_4685968-078472b682fcc9cd.png)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473853633_4685968-33f514577e97dc35.png)
 
 
 
 
 `worker` 中的线程 `start` 后，其 `run` 方法会调用 `runWorker `
-![](https://upload-images.jianshu.io/upload_images/4685968-a009bc02a224dce2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852880_4685968-a009bc02a224dce2.png)
 继续往下看 `runWorker`
 ```
 //  worker 线程启动后调用,while 循环(即自旋!)不断从等待队列获取任务并执行
@@ -800,7 +801,7 @@ final void runWorker(Worker w) {
 }
 ```
 看看 `getTask() `
-![](https://upload-images.jianshu.io/upload_images/4685968-5e94773193d9cf49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://uploadfiles.nowcoder.com/files/20190625/5088755_1561473852780_4685968-5e94773193d9cf49.png)
 ```
 // 此方法有三种可能
 // 1. 阻塞直到获取到任务返回。默认 corePoolSize 之内的线程是不会被回收的，它们会一直等待任务
@@ -1162,11 +1163,13 @@ protected void beforeExecute(Thread t, Runnable r) { }
 
 # 参考
 《码出高效》
+<<Java并发编程的艺术>>
 
-
-
-
-
+# X 交流学习
+![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
+## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+## [博客](http://www.shishusheng.com)
+## [Github](https://github.com/Wasabi1234)
 
 
 

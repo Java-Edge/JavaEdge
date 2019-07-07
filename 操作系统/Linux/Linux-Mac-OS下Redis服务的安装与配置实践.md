@@ -68,7 +68,6 @@
 
 ## [博客](http://www.shishusheng.com)
 
-## [知乎](http://www.zhihu.com/people/shi-shu-sheng-)
 
 ## [Github](https://github.com/Wasabi1234)
 

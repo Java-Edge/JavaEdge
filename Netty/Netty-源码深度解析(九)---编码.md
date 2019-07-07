@@ -346,4 +346,13 @@ public ChannelFuture writeAndFlush(Object msg, ChannelPromise promise) {
 ![](https://upload-images.jianshu.io/upload_images/4685968-42527f4855e71919.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ## 当 BizHandler 通过 writeAndFlush 方法将自定义对象往前传播时,其实可以拆分成两个过程
 - 通过 pipeline逐渐往前传播,传播到其中的一个 encode 节点后,其负责重写 write 方法将自定义的对象转化为 ByteBuf,接着继续调用 write 向前传播
+
 - pipeline中的编码器原理是创建一个`ByteBuf`,将Java对象转换为`ByteBuf`，然后再把`ByteBuf`继续向前传递,若没有再重写了,最终会传播到 head 节点,其中缓冲区列表拿到缓存写到 JDK 底层 ByteBuffer
+
+# X 交流学习
+![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
+
+## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+## [博客](http://www.shishusheng.com)
+
+## [Github](https://github.com/Wasabi1234)

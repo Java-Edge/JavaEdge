@@ -82,13 +82,11 @@ IO多路复用程序可以同时监听AE_REABLE和AE_WRITABLE两种事件，要�
 - 核心是基于非阻塞的IO多路复用机制
 - 单线程反而避免了多线程的频繁上下文切换问题
 
+# 参考
+《Java工程师面试突击第1季-中华石杉老师》
+
 # X 交流学习
 ![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-![](https://img-blog.csdnimg.cn/20190502142519844.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
-
 ## [博客](http://www.shishusheng.com)
-
-![](https://img-blog.csdnimg.cn/20190502142541289.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
-
 ## [Github](https://github.com/Wasabi1234)

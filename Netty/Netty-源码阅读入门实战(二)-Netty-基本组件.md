@@ -78,3 +78,11 @@ netty 将其抽象成逻辑链,看看 netty 是怎么把每个 pipeline 加入�
 ![](https://upload-images.jianshu.io/upload_images/4685968-4f7525c5919e6f5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![](https://upload-images.jianshu.io/upload_images/4685968-78d1d6ecb409a9e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![](https://upload-images.jianshu.io/upload_images/4685968-75906ed6b687c303.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+# X 交流学习
+![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
+
+## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+## [博客](http://www.shishusheng.com)
+
+## [Github](https://github.com/Wasabi1234)

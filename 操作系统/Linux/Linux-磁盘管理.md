@@ -17,7 +17,6 @@ fdisk命令,接着根据提示操作即可
 
 ## [博客](http://www.shishusheng.com)
 
-## [知乎](http://www.zhihu.com/people/shi-shu-sheng-)
 
 ## [Github](https://github.com/Wasabi1234)
 
