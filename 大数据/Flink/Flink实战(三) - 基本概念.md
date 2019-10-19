@@ -432,4 +432,12 @@ ResultTypeQueryable接口可以通过输入格式和函数实现，以明确告�
 # 参考
 [Apache Flink](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/api_concepts.html)
 
-> 更多内容请关注JavaEdge公众号
+# X 交流学习
+![](https://upload-images.jianshu.io/upload_images/16782311-8d7acde57fdce062.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
+
+## [CSDN](https://blog.csdn.net/qq_33589510)
+
+## [Github](https://github.com/Wasabi1234)
+

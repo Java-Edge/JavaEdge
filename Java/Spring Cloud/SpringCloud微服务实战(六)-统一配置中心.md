@@ -39,3 +39,7 @@ git默认存放路径
 ![配置文件修改,删除多余信息](https://upload-images.jianshu.io/upload_images/4685968-f4c7b53b65e4a4c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 # 4 SpringCloud Bus 自动刷新配置
 ![架构图](https://upload-images.jianshu.io/upload_images/4685968-9578a72bb05c0772.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+# 参考
+
+[SpringCloud Finchley三版本微服务实战](https://coding.imooc.com/class/187.html)

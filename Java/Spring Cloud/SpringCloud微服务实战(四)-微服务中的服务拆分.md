@@ -93,3 +93,8 @@ https://github.com/Wasabi1234/productdemo
 ## 4.12 再看拆数据
 ![](https://uploadfiles.nowcoder.com/files/20190616/5088755_1560634550303_4685968-1e57f113611b8686.png)
 ![](https://uploadfiles.nowcoder.com/files/20190616/5088755_1560634551175_4685968-7d2ae008cd9d0665.png)
+
+
+# 参考
+
+[SpringCloud Finchley三版本微服务实战](https://coding.imooc.com/class/187.html)

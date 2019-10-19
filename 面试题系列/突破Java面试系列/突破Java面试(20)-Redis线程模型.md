@@ -88,5 +88,5 @@ IO多路复用程序可以同时监听AE_REABLE和AE_WRITABLE两种事件，要�
 # X 交流学习
 ![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-## [博客](http://www.shishusheng.com)
+## [博客](https://blog.csdn.net/qq_33589510)
 ## [Github](https://github.com/Wasabi1234)

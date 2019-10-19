@@ -37,10 +37,14 @@ MQ、ES、Redis、Dubbo，上来先问你一些思考的问题，原理（kafka�
 ## 3.2 注册中心挂了可以继续通信吗？
 可以，因为刚开始初始化的时候，消费者会将提供者的地址等信息拉取到本地缓存，所以注册中心挂了可以继续通信
 
+# 参考
+
+《Java工程师面试突击第1季-中华石杉老师》
+
 # X 交流学习
 ![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-## [博客](http://www.shishusheng.com)
+## [博客](https://blog.csdn.net/qq_33589510)
 
 ## [Github](https://github.com/Wasabi1234)
 

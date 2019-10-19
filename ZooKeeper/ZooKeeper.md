@@ -156,7 +156,7 @@ ZAB协议包括两种基本的模式，分别是 **崩溃恢复和消息广播**
 
 # X 联系我
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-## [博客](http://www.shishusheng.com)
+## [博客](https://blog.csdn.net/qq_33589510)
 ## [Github](https://github.com/Wasabi1234)
 
 

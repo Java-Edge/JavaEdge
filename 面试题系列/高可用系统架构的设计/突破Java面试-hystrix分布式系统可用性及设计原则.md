@@ -82,10 +82,14 @@ hystrix为了实现高可用性的架构，设计hystrix的时候，一些设计
 
 画图分析，对依赖进行资源隔离后，如何避免依赖服务调用延迟或失败导致当前服务的故障
 
+# 参考
+
+- 《Java工程师面试突击第1季-中华石杉老师》
+
 # X 交流学习
 ![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-## [博客](http://www.shishusheng.com)
+## [博客](https://blog.csdn.net/qq_33589510)
 
 ## [Github](https://github.com/Wasabi1234)
 

@@ -380,6 +380,6 @@ Flink 为持续流式分析和批量分析都提供了良好的支持。具体�
 
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
 
-## [CSDN](http://www.shishusheng.com)
+## [CSDN](https://blog.csdn.net/qq_33589510)
 
 ## [Github](https://github.com/Wasabi1234)
