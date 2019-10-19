@@ -11,10 +11,14 @@ redis的并发竞争问题是什么？如何解决这个问题？了解Redis事�
 - redis并发竞争问题以及解决方案
 ![](https://img-blog.csdnimg.cn/20190509175418361.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
 
+# 参考
+
+《Java工程师面试突击第1季-中华石杉老师》
+
 # X 交流学习
 ![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
 ## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-## [博客](http://www.shishusheng.com)
+## [博客](https://blog.csdn.net/qq_33589510)
 
 ## [Github](https://github.com/Wasabi1234)
 

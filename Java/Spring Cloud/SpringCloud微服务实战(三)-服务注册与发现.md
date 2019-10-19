@@ -2,49 +2,76 @@
 https://github.com/Wasabi1234/SpringCloud_OrderDemo
 - 商品服务源码
 https://github.com/Wasabi1234/SpringCloud_ProductDemo
-![](https://upload-images.jianshu.io/upload_images/4685968-ad371531c6d8285c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##注册中心Eureka Server
-![新建项目](https://upload-images.jianshu.io/upload_images/4685968-5a71804525ced7aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+# 0 分布式下服务注册的地位和原理
+## 0.1 分布式系统中为什么需要服务发现
+![](https://img-blog.csdnimg.cn/20191018224236498.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_1,color_FFFFFF,t_70)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTgzNTRhNTc4MDAxZjIzODYucG5n?x-oss-process=image/format,png)
+A 类比青楼中的嫖客, B 类比青楼女子,注册中心呢就相当于青楼中的妈咪
+一般 嫖客服务一来,就肯定直接点名春花还是秋月呀,直接问妈咪要花魁就行
+
+## 0.2 服务发现的两种方式
+◆ 客户端发现
+- Eureka
+
+◆ 服务端发现
+- Nginx
+- Zookeeper
+- Kubernetes
+
+
+我们这里使用Eureka
+
+◆ 基于Netflix Eureka做了二次封装
+◆ 两个组件组成:
+- Eureka Server注册中心
+- Eureka Client服务注册
+# 1 注册中心 Eureka Server
+![新建项目](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTVhNzE4MDQ1MjVjZWQ3YWEucG5n?x-oss-process=image/format,png)
 使用`@EnableEurekaServer`
-![](https://upload-images.jianshu.io/upload_images/4685968-8f872f99b4f4ee78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LThmODcyZjk5YjRmNGVlNzgucG5n?x-oss-process=image/format,png)
 就可以让应用变为Eureka服务器，这是因为spring boot封装了Eureka Server，让你可以嵌入到应用中直接使用
-直接运行成功如下
-![](https://upload-images.jianshu.io/upload_images/4685968-b71a68b2ab5fa2c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-但是不断报异常,why?
-![](https://upload-images.jianshu.io/upload_images/4685968-ffff1cc04f1e8dae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+- 直接运行成功如下
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWI3MWE2OGIyYWI1ZmEyYzUucG5n?x-oss-process=image/format,png)
+- 但是不断报异常,why?
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWZmZmYxY2MwNGYxZThkYWUucG5n?x-oss-process=image/format,png)
 这是因为该应用虽然是 Server 端,但也同时是 Client 端,也需要一个注册中心将自己注册进去
 为消除其异常,修改下配置
-配置需要注册的地址,也就是往自己身上注册
-![](https://upload-images.jianshu.io/upload_images/4685968-5444a86900c252ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-通过观察源码,知道其实是一个 map, 所以配置如下
-![](https://upload-images.jianshu.io/upload_images/4685968-a8bef88b3212cbae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+- 配置需要注册的地址,也就是往自己身上注册
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTU0NDRhODY5MDBjMjUyZWMucG5n?x-oss-process=image/format,png)
+- 通过观察源码,知道其实是一个 map, 所以配置如下
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWE4YmVmODhiMzIxMmNiYWUucG5n?x-oss-process=image/format,png)
 启动仍旧报错,其实正常问题,因为服务端自己又是 Server, 又是 Client, 服务端未启动完成时,客户端肯定是无法找到服务端的
 但是 eureka 的服务端/客户端采用心跳通信方式
-![](https://upload-images.jianshu.io/upload_images/4685968-8490f8c61a8437d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTg0OTBmOGM2MWE4NDM3ZDUucG5n?x-oss-process=image/format,png)
 可看到地址已随配置被改变
 
-接下来配置实例名
-![](https://upload-images.jianshu.io/upload_images/4685968-b3c897df2e1a808d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![实例名被修改成功](https://upload-images.jianshu.io/upload_images/4685968-a5e87119a55b8331.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-但是该应用本身就是个注册中心,不需要将其显示在注册实例中,通过以下配置
-![](https://upload-images.jianshu.io/upload_images/4685968-4d01658c06938041.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-为防止冲突,将端口号回改为默认
-![](https://upload-images.jianshu.io/upload_images/4685968-529e7846d3eebe19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-a3f5ec7b14ad4818.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##服务中心
-![](https://upload-images.jianshu.io/upload_images/4685968-d7357881e6753775.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-为避免每次手动启动,将应用打成 war 包(jar)
-![](https://upload-images.jianshu.io/upload_images/4685968-ca3cbad66bc521ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![通过 java 命令启动](https://upload-images.jianshu.io/upload_images/4685968-e12123e91852144e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![启动成功效果](https://upload-images.jianshu.io/upload_images/4685968-45a0ad8761acf47f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![Mac 下 Ctrl+C 退出服务](https://upload-images.jianshu.io/upload_images/4685968-f6dc9b1b90c1a948.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![后台执行](https://upload-images.jianshu.io/upload_images/4685968-4ddcc8bd748bf6b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![查看其相关进程信息](https://upload-images.jianshu.io/upload_images/4685968-5c4b493f78c0dd91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-如此该应用就方便了我们,不需要每次都去手动启动应用,在后台会重启,若想杀死进程直接 kill
-![](https://upload-images.jianshu.io/upload_images/4685968-16b1e4b0e40b0199.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- 接下来配置实例名
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWIzYzg5N2RmMmUxYTgwOGQucG5n?x-oss-process=image/format,png)
 
-## 3.3 Eureka Client的使用
-![](https://upload-images.jianshu.io/upload_images/4685968-ee8af491e5a312a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://img-blog.csdnimg.cn/20191018215344300.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_1,color_FFFFFF,t_70)
+- 但是该应用本身就是个注册中心,不需要将其显示在注册实例中,通过以下配置
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTRkMDE2NThjMDY5MzgwNDEucG5n?x-oss-process=image/format,png)
+- 为防止冲突,将端口号回改为默认
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTUyOWU3ODQ2ZDNlZWJlMTkucG5n?x-oss-process=image/format,png)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWEzZjVlYzdiMTRhZDQ4MTgucG5n?x-oss-process=image/format,png)
+
+# 2 服务中心
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWQ3MzU3ODgxZTY3NTM3NzUucG5n?x-oss-process=image/format,png)
+
+- 为避免每次手动启动,将应用打成 war 包(jar)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWNhM2NiYWQ2NmJjNTIxZmYucG5n?x-oss-process=image/format,png)![通过 java 命令启动](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWUxMjEyM2U5MTg1MjE0NGUucG5n?x-oss-process=image/format,png)![启动成功效果](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTQ1YTBhZDg3NjFhY2Y0N2YucG5n?x-oss-process=image/format,png)
+![Mac 下 Ctrl+C 退出服务](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWY2ZGM5YjFiOTBjMWE5NDgucG5n?x-oss-process=image/format,png)
+![后台执行](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTRkZGNjOGJkNzQ4YmY2YjUucG5n?x-oss-process=image/format,png)
+![查看其相关进程信息](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTVjNGI0OTNmNzhjMGRkOTEucG5n?x-oss-process=image/format,png)
+
+- 如此该应用就方便了我们,不需要每次都去手动启动应用,在后台会重启,若想杀死进程直接 kill
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTE2YjFlNGIwZTQwYjAxOTkucG5n?x-oss-process=image/format,png)
+
+# 3 Eureka Client的使用
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWVlOGFmNDkxZTVhMzEyYTUucG5n?x-oss-process=image/format,png)
 - `@EnableDiscoveryClient`注解
 这通过`META-INF/spring.factories`查找`DiscoveryClient`接口的实现
 Discovery Client的实现将在`org.springframework.cloud.client.discovery.EnableDiscoveryClient`键下的`spring.factories`中添加一个配置类。
@@ -52,70 +79,85 @@ Discovery Client的实现将在`org.springframework.cloud.client.discovery.Enabl
 
 默认情况下，`DiscoveryClient`的实现将使用远程发现服务器自动注册本地Spring Boot服务器。可以通过在`@EnableDiscoveryClient`中设置`autoRegister=false`来禁用此功能。
 
-启动Server, 再启动 Client
-![发现并没有注册成功实例](https://upload-images.jianshu.io/upload_images/4685968-9da416ccd633c799.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-因为没有配置注册目标地址信息
-![](https://upload-images.jianshu.io/upload_images/4685968-197f5e1401d5a4ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-之后再次重启,依旧无法注册成功,几经勘察,添加以下依赖后,成功运行,注册到服务器
-![](https://upload-images.jianshu.io/upload_images/4685968-dab3e741646d87da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-再指定 client 名字
-![](https://upload-images.jianshu.io/upload_images/4685968-77b7e08397aab65e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-发现成功注册
-![](https://upload-images.jianshu.io/upload_images/4685968-447ae3cea24861ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-此为 client 应用ip 地址
-![](https://upload-images.jianshu.io/upload_images/4685968-393a5ff147bfb1f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-但其实可以自定义
-![](https://upload-images.jianshu.io/upload_images/4685968-ab9f1d0f812c5310.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-接着点击进入那个链接,URL如下
-![](https://upload-images.jianshu.io/upload_images/4685968-9cc1d2a8e2e5772a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-- Eureka保证AP
+- 启动Server, 再启动 Client
+![发现并没有注册成功实例](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTlkYTQxNmNjZDYzM2M3OTkucG5n?x-oss-process=image/format,png)
+- 因为没有配置注册目标地址信息
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTE5N2Y1ZTE0MDFkNWE0ZWQucG5n?x-oss-process=image/format,png)
+- 之后再次重启,依旧无法注册成功,几经勘察,添加以下依赖后,成功运行,注册到服务器
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWRhYjNlNzQxNjQ2ZDg3ZGEucG5n?x-oss-process=image/format,png)
+- 再指定 client 名字
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTc3YjdlMDgzOTdhYWI2NWUucG5n?x-oss-process=image/format,png)
+- 发现成功注册
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTQ0N2FlM2NlYTI0ODYxY2UucG5n?x-oss-process=image/format,png)
+- 此为 client 应用ip 地址
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTM5M2E1ZmYxNDdiZmIxZjEucG5n?x-oss-process=image/format,png)
+- 但其实可以自定义
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWFiOWYxZDBmODEyYzUzMTAucG5n?x-oss-process=image/format,png)
+- 接着点击进入那个链接,URL如下
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTljYzFkMmE4ZTJlNTc3MmEucG5n?x-oss-process=image/format,png)
+- Eureka保证分布式CAP理论中的AP
 有时会发现如下红色警戒!
-![](https://upload-images.jianshu.io/upload_images/4685968-273265cd6cea62c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-Eureka看明白了这一点，因此在设计时就优先保证可用性。我们可以容忍注册中心返回的是几分钟以前的注册信息，但不能接受服务直接down掉不可用。也就是说，服务注册功能对可用性的要求要高于一致性。
-如果Eureka服务节点在短时间里丢失了大量的心跳连接(注：可能发生了网络故障)，那么这个 Eureka节点会进入“自我保护模式”，同时保留那些“心跳死亡”的服务注册信息不过期。此时，这个Eureka节点对于新的服务还能提供注册服务，对于“死亡”的仍然保留，以防还有客户端向其发起请求。当网络故障恢复后，这个Eureka节点会退出“自我保护模式”。Eureka的哲学是，同时保留“好数据”与“坏数据”总比丢掉任何数据要更好。
-在开发模式,最好关闭该模式(默认是开启的),仅能在开发环境关闭!,生产环境禁止关闭!!!
-![](https://upload-images.jianshu.io/upload_images/4685968-a04f2186501ce1a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-## 3.4 Eureka的高可用
-如果一台 eureka宕机了咋办呢,为了实现高可用,如果直接加一台服务器并无任何卵用,考虑将两台 eureka 互相注册
-![](https://upload-images.jianshu.io/upload_images/4685968-d12648840d93b02b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-复制得到两份 eureka,并以端口区分
-![](https://upload-images.jianshu.io/upload_images/4685968-20facd35bb36e065.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-将 eureka1注册到 eureka2上并启动
-![](https://upload-images.jianshu.io/upload_images/4685968-7efb11a69e156076.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-将 eureka2注册到 eureka1上并启动
-![](https://upload-images.jianshu.io/upload_images/4685968-7aaa1fa687b23a84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-cb47b9201d61c0c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-0da2ce887cb5af39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTI3MzI2NWNkNmNlYTYyYzIucG5n?x-oss-process=image/format,png)
+Eureka看明白了这一点，因此在设计时就`优先保证可用性`
+我们可以容忍注册中心返回的是几分钟以前的注册信息，但不能接受服务直接宕机。也就是说，`服务注册功能对可用性的要求要高于一致性`!
+
+如果Eureka服务节点在短时间里丢失了大量的心跳连接(可能发生了网络故障)，那么这个 Eureka节点会
+- 进入“自我保护模式”
+但该节点对于新的服务还能提供注册服务, 当网络故障恢复后，这个Eureka节点会退出“自我保护模式”
+- 同时保留那些“心跳死亡”的服务注册信息不过期
+对于“死亡”的仍然保留，以防还有客户端向其发起请求
+
+#### `Eureka的哲学是，同时保留“好数据”与“坏数据”总比丢掉任何数据要更好`
+
+- 在开发模式,最好关闭该模式(默认是开启的),注意仅能在开发环境关闭哦!
+- 生产环境禁止关闭!!!
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWEwNGYyMTg2NTAxY2UxYTMucG5n?x-oss-process=image/format,png)
+# 4 Eureka的高可用
+如果一台 eureka 宕机了咋办呢,为了实现高可用, 如果直接加一台服务器并无任何卵用,
+
+## 4.1 考虑将两台 eureka 互相注册
+![](https://img-blog.csdnimg.cn/20191018222856832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
+- 复制得到两份 eureka,并以端口区分
+![](https://img-blog.csdnimg.cn/20191018223100946.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_1,color_FFFFFF,t_70)
+- 将 eureka1注册到 eureka2上并启动
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTdlZmIxMWE2OWUxNTYwNzYucG5n?x-oss-process=image/format,png)
+- 将 eureka2注册到 eureka1上并启动
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTdhYWExZmE2ODdiMjNhODQucG5n?x-oss-process=image/format,png)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWNiNDdiOTIwMWQ2MWMwYzAucG5n?x-oss-process=image/format,png)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTBkYTJjZTg4N2NiNWFmMzkucG5n?x-oss-process=image/format,png)
+
 发现 client 在1,2同时都注册成功了!
 假如此时 eureka1宕机了,会发生什么呢?
-![](https://upload-images.jianshu.io/upload_images/4685968-8cce7c085770d214.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-我们来将1给关闭
-![](https://upload-images.jianshu.io/upload_images/4685968-643a84de83f0d6b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-592e41cb42871f9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-1d6610d19c76af99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-发现2依旧存活,并且 client 还在连接
+![](https://img-blog.csdnimg.cn/2019101822331787.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
+- 我们来将1给关闭
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTY0M2E4NGRlODNmMGQ2YjcucG5n?x-oss-process=image/format,png)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTU5MmU0MWNiNDI4NzFmOWUucG5n?x-oss-process=image/format,png)
+- 发现2依旧存活,并且 client 还在连接![](https://img-blog.csdnimg.cn/20191018223436753.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_1,color_FFFFFF,t_70)
 
-若此时再 client 端重启又会发生什么呢?
-![](https://upload-images.jianshu.io/upload_images/4685968-c0f3fd2b929bd58d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-因为无法注册,自然报错了,E2上也没有 client 端再连接了
-![](https://upload-images.jianshu.io/upload_images/4685968-e944f363b9c4fbc7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-那么问题来了,怎么才能保证 E1宕机后, client 仍能注册在 E2上呢?只要保持每次都同时往两个 E 注册
-![](https://upload-images.jianshu.io/upload_images/4685968-8642b72f32139f60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-同理可得,当有3个 E 时,如此相互注册
-![](https://upload-images.jianshu.io/upload_images/4685968-0ded453fe1710c1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-77be07292929c33f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-a13abb86e126efb8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-新建 E3
-![](https://upload-images.jianshu.io/upload_images/4685968-ad37a6853df9330d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-343fbe2ac6417892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-92f2e16d47fc8154.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-对于我们的开发环境,部署一个 E 即可,不再集群
-## 3.5 Eureka总结
-![](https://upload-images.jianshu.io/upload_images/4685968-c768943eef432bcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-## 3.6 分布式下服务注册的地位和原理
-![](https://upload-images.jianshu.io/upload_images/4685968-c6b9c15c3c66fa36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-8354a578001f2386.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-A 类比青楼中的嫖客, B 类比青楼女子,注册中心呢就相当于青楼中的妈咪
-一般 嫖客服务一来,就肯定直接点名春花还是秋月呀,直接问妈咪要花魁就行
-![](https://upload-images.jianshu.io/upload_images/4685968-62be3e8cab095c1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-ecfee658cd5a50b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- 若此时再 client 端重启又会发生什么呢?
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191018223534480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_16,color_FFFFFF,t_70)
+- 因为无法注册,自然报错了, E2上也没有 client 端再连接了
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWU5NDRmMzYzYjljNGZiYzcucG5n?x-oss-process=image/format,png)
+- 那么问题来了,怎么才能保证 E1宕机后, client 仍能注册在 E2上呢?只要保持每次都同时往两个 E 注册
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTg2NDJiNzJmMzIxMzlmNjAucG5n?x-oss-process=image/format,png)
+## 同理可得,当有3个 E 时,如此相互注册
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTBkZWQ0NTNmZTE3MTBjMWUucG5n?x-oss-process=image/format,png)
+![](https://img-blog.csdnimg.cn/20191018223757518.png)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWExM2FiYjg2ZTEyNmVmYjgucG5n?x-oss-process=image/format,png)
+- 新建 E3
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LWFkMzdhNjg1M2RmOTMzMGQucG5n?x-oss-process=image/format,png)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTM0M2ZiZTJhYzY0MTc4OTIucG5n?x-oss-process=image/format,png)
+![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy80Njg1OTY4LTkyZjJlMTZkNDdmYzgxNTQucG5n?x-oss-process=image/format,png)
+对于我们的本地开发环境,部署一个 E 即可,不再集群
+# 5 Eureka总结
+◆ @EnableEurekaServer @EnableEurekaClient
+◆ 心跳检测、健康检查、负载均衡等功能
+◆ Eureka的高可用,生产上建议至少两台以上
+◆ `分布式系统中 ,服务注册中心是最重要的基础部分`
+
+- 结构图
+![](https://img-blog.csdnimg.cn/201910182146089.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_1,color_FFFFFF,t_70)
+# 参考
+- [SpringCloud Finchley三版本微服务实战](https://coding.imooc.com/class/187.html)
+
+- [互联网Java进阶面试训练营](https://github.com/shishan100/Java-Interview-Advanced)

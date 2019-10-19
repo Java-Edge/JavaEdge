@@ -1,7 +1,7 @@
 # 0 联系我
 ![](http://upload-images.jianshu.io/upload_images/4685968-10e219418608a3d4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "图片标题") 
 1.Q群【Java开发技术交流】：[https://jq.qq.com/?_wv=1027&k=5UB4P1T](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-2.完整博客链接:[www.shishusheng.com](http://www.shishusheng.com)
+2.完整博客链接:[www.shishusheng.com](https://blog.csdn.net/qq_33589510)
 3.知乎:[http://www.zhihu.com/people/shi-shu-sheng-](http://www.zhihu.com/people/shi-shu-sheng-)
 4.gayhub:[https://github.com/Wasabi1234](https://github.com/Wasabi1234)
 
