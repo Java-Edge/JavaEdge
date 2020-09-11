@@ -729,22 +729,10 @@ public class SemaphoreExample3 {
 ![](https://upload-images.jianshu.io/upload_images/4685968-a6efafc286fd0119.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## 12.4 高并发场景问题及实战
-![](https://upload-images.jianshu.io/upload_images/4685968-66a1136fda32d82c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ### 缓存一致性
 ![](https://upload-images.jianshu.io/upload_images/4685968-8897cf0ea46fd70e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-### 缓存并发问题
-![](https://upload-images.jianshu.io/upload_images/4685968-829cc45cffa45305.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-### 缓存穿透问题
-![](https://upload-images.jianshu.io/upload_images/4685968-9cd72ad60d574e44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-### 缓存的雪崩问题
-![](https://upload-images.jianshu.io/upload_images/4685968-3222e4ef6875eeb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-### 缓存高并发实战 - 股票分时线
-![](https://upload-images.jianshu.io/upload_images/4685968-5be19a8189b4202d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 # 13 高并发之消息队列思路
 ## 13.1 业务案例
@@ -766,6 +754,4 @@ public class SemaphoreExample3 {
 ### kafka
 ![](https://upload-images.jianshu.io/upload_images/4685968-f387cab7dbc62cb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-### rabbitmq
-![](https://upload-images.jianshu.io/upload_images/4685968-5ff08db891f912c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
+、

@@ -1,8 +1,21 @@
 # 1 简介
-![以 Netty 为底层的框架](https://upload-images.jianshu.io/upload_images/4685968-6af03dbb058b8346.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-## Netty 是什么
-![](https://upload-images.jianshu.io/upload_images/4685968-1945957afed79b01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-## Netty 技术和方法的特点
+Netty 由其作者 Trustin Lee
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200506020243622.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_1,color_FFFFFF,t_70)
+
+
+ 在 2008 年提交第一个commit至今，转眼间已经走过了十二年。
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050602013649.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNTg5NTEw,size_1,color_FFFFFF,t_70)
+Netty 本身是基于 Java 中 NIO 接口能力进行封装而成的框架。对 NIO 的学习和掌握是不可避免的。
+可以熟练的使用框架进行业务的开发，仅仅只是学习刚开了一个头。只有深入到框架的内部，对一个结果的背后都了解了“为什么”，“是什么”，“怎么样”，才能算对框架实现了掌握。而到了这一步，深入的探究源码是最好的手段。
+
+# 什么是 Netty
+- 异步事件驱动框架,可快速开发高性能的服务端和客户端
+- 封装了JDK底层BIO和NIO模型，提供更加简单易用安全的 API
+- 自带编解码器解决拆包粘包问题，无需用户困扰
+-  reactor线程模型支持高并发海量连接
+- 自带各种协议栈
+
+# Netty 的特点
 - 设计
 针对多种传输类型的统一接口 - 阻塞和非阻塞
 简单但更强大的线程模型
@@ -24,18 +37,17 @@
 - 社区
 发布的更早和更频繁
 社区驱动
-![](https://upload-images.jianshu.io/upload_images/4685968-55fd9dc5dbe6fb9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-e4238aaf50f7de6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-a2681e4f2117ed7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-9c2378030c744f4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-447aad2184c81733.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-043d07602379c91d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/4685968-04630176d02dbd90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-# X 交流学习
-![](https://img-blog.csdnimg.cn/20190504005601174.jpg)
+# 为什么要研究 Netty
+◆各大开源项目选择Netty作为底层通信框架
+◆更好的使用,少走弯路
+◆遇到bug ?单机连接数上不去?性能遇到瓶颈?如何调优?
+◆详解reactor线程模型 ,实践中举-反三
+◆庞大的项目是如何组织的 ,设计模式,体验优秀的设计
+◆阅读源码其实没那么困难
 
-## [Java交流群](https://jq.qq.com/?_wv=1027&k=5UB4P1T)
-## [博客](https://blog.csdn.net/qq_33589510)
 
-## [Github](https://github.com/Wasabi1234)
+# 学习 Netty 将解锁以下成就：
+◆掌握Netty底层原理 ,轻松解决各类疑难杂症,深度调优
+◆面试加分,互联网各大架构师的职位,升职加薪,以-档三
+◆给官方提issue

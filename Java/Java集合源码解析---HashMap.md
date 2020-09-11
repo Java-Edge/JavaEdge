@@ -161,7 +161,9 @@ n | (n >>> 8) 导致n二进制表示的高9~16位经过运算值均为1
 
 可以看出,无论给定cap(cap < MAXIMUM_CAPACITY )的值是多少,经过以上运算,其值的二进制所有位都会是1.再将其加1,这时候这个值一定是2的幂次方.
 当然如果经过运算值大于MAXIMUM_CAPACITY,直接选用MAXIMUM_CAPACITY.
-![例子](http://upload-images.jianshu.io/upload_images/4685968-ffb968a6b1a70fa9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/4685968-ffb968a6b1a70fa9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 至此tableSizeFor如何保证cap为2的幂次方已经显而易见了,那么问题来了
 
 ## 4.1 **为什么cap要保持为2的幂次方？**

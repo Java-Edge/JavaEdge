@@ -104,3 +104,5 @@ mysql> select name, count(name), count(1), count(*), count(age), count(distinct(
 +------+-------------+----------+----------+------------+----------------------+
 5 rows in set (0.00 sec)
 ```
+
+MyISAM有表元数据的缓存，例如行，即COUNT(*)值，对于MyISAM表的COUNT(*)无需消耗太多资源，但对于Innodb，就没有这种元数据，CONUT（*）执行较慢。
